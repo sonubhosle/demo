@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Records</title>
+</head>
+<body>
+
+<div id="studentList"></div>
+
+<script>
+// Sample student data
+var students = [
+    {
+        id: 1,
+        image: "path/to/image1.jpg",
+        name: "John Doe",
+        rollno: "A001",
+        admissiondate: "2024-05-25"
+    },
+    {
+        id: 2,
+        image: "path/to/image2.jpg",
+        name: "Jane Smith",
+        rollno: "A002",
+        admissiondate: "2024-05-26"
+    },
+    // Add more student objects as needed
+];
+
+// Function to generate HTML for each student
+function generateStudentHTML(student) {
+    return `
+    <div class="student">
+        <img src="${student.image}" alt="${student.name}">
+        <h2>${student.name}</h2>
+        <p>ID: ${student.id}</p>
+        <p>Roll No: ${student.rollno}</p>
+        <p>Admission Date: ${student.admissiondate}</p>
+    </div>
+    `;
+}
+
+// Function to display students in HTML
+function displayStudents() {
+    var studentListDiv = document.getElementById("studentList");
+    studentListDiv.innerHTML = ""; // Clear previous content
+
+    students.forEach(function(student) {
+        var studentHTML = generateStudentHTML(student);
+        studentListDiv.innerHTML += studentHTML;
+    });
+}
+
+// Display students when the page loads
+window.onload = displayStudents;
+</script>
+
+</body>
+</html>
